@@ -6,7 +6,7 @@ services:
     # build:
     #   context: ./server
     #   dockerfile: Dockerfile
-    image: ahmedsamymahrous/todo-app
+    image: todo-server
     container_name: myapp-node-server
     ports:
       - "8080:8080"
@@ -34,7 +34,7 @@ services:
     # build:
     #   context: ./client
     #   dockerfile: Dockerfile
-    image: ahmedsamymahrous/todo-client
+    image: todo-client
     container_name: myapp-react-client
     depends_on:
       - server

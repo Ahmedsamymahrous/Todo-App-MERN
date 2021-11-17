@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9'
 
 services:
 
@@ -12,10 +12,10 @@ services:
       - "8080:8080"
     depends_on:
       - mongo
-    networks:
-      - app-network
-    deploy:
-      replicas: 3
+    # networks:
+    #   - app-network
+    # deploy:
+    #   replicas: 3
 
 
   mongo:
@@ -24,10 +24,10 @@ services:
       - data-volume:/data/db
     ports:
       - "27018:27017"
-    networks:
-      - app-network
-    deploy:
-      replicas: 3
+    # networks:
+    #   - app-network
+    # deploy:
+    #   replicas: 3
 
 
   client:
@@ -40,15 +40,15 @@ services:
       - server
     ports:
       - "80:80"
-    networks:
-      - app-network
-    deploy:
-      replicas: 3
-      placement:
-          constraints: [node.role == manager]
+    # networks:
+    #   - app-network
+    # deploy:
+    #   replicas: 3
+    #   placement:
+    #       constraints: [node.role == manager]
 
-networks:
-    app-network:
+# networks:
+#     app-network:
         # driver: bridge
 
 volumes:
